@@ -17,6 +17,10 @@ body {
     color: #252525;
 }
 
+h1, h2, h3 { /* necessário, pois o bootstrap tira o bold dos h */
+    font-weight: bold;
+}
+
 * {
     box-sizing: border-box; /* definindo que em todo o site quando definir o tamanho de um elemento, por exemplo um link com 200px e nesse link eu adicionar uma borda, um padding esse valor não será somado mais aos 200px do tamanho e sim será incluso nos 200px de tamanho */
 }
@@ -39,15 +43,7 @@ img {
 
 .menu {
     background: #252525;
-    
-}
-
-.menu-logo {
-    
-}
-
-.menu-nav {
-   
+    padding: 20px 0;
 }
 
 .menu-nav a {
@@ -57,21 +53,31 @@ img {
 }
 
 .menu-nav ul {
-  
+    float: right;
+    list-style-type: none;
+}
+
+.menu-nav ul li {
+    display: inline-block;
 }
 
 .menu-nav ul li a {
-    
+    padding: 10px;
+    display: inline-block;
 }
 
-@media only screen and (max-width: 739px) {
-   .menu-nav {
-        
+@media only screen and (max-width: 768px) { /* usando breakpoint maior, por causa do bootstrap, pois está utilizando mais o menos o mesmo tamanho */
+    .menu-nav ul {
+        float: none;
     }
 
-   .menu-logo {
-         
-   }
+    .menu-nav ul li a {
+       padding-left: 0;    
+    }
+
+    .menu-logo {
+        margin: 0 auto;
+    }
 }
 
 /* Fim Menu */
@@ -82,8 +88,9 @@ img {
     background: url('../img/bg-intro.jpg') no-repeat center center; /* centralizando para cima e para baixo e para a direita e para esquerda*/
     background-size: cover; /* sempre irá pegar 100% do tamanho da tela */
     color: #fff;
-    
     text-align: center;
+
+    padding: 160px 0;
 }
 
 .introducao h1 {
@@ -97,6 +104,8 @@ img {
     width: 20px;
     height: 4px;
     background-color: #fff;
+
+    margin: 10px auto;
     
 }
 
@@ -105,8 +114,11 @@ img {
     font-style: italic;
 }
 
-@media only screen and (max-width: 739px) {
-
+@media only screen and (max-width: 768px) {
+    
+    .introducao {
+        padding: 60px 0;
+    }
    
 }
 
@@ -116,17 +128,14 @@ img {
 /* Sobre */
 
 .sobre {
-    
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .sobre h2 {
     font-size: 2.25em;
-    
     text-align: center;
-}
-
-.sobre-cafe {
-    
+    margin-bottom: 40px;
 }
 
 .sobre-cafe h3 {
@@ -136,21 +145,23 @@ img {
     color: #fff;
     background-color: #252525;
     font-weight: normal;
+    text-align: center;;
+
     font-style: italic;
     position: relative; /* posição relativa a ele mesmo, porém continua ocupando o espaço onde estava */
-    /*width: 220px;
+    width: 220px;
     padding: 8px;
-    top: -20px;*/
+    top: -20px;
    
 }
 
 .sobre > p { /* falando sobre com o p que está dentro da classe sobre */
-    /*max-width: 460px; /* definindo o tamanho máximo para que o conteúdo não fique muito grande */
+    max-width: 460px; /* definindo o tamanho máximo para que o conteúdo não fique muito grande */
     text-align: center;
     font-size: 1.125em;
     line-height: 1.4em; /* geralmente por padrão o espaçamento da quebra de linha do texto é em torno de 1.3em 1.4em 1.5.em. 1.6em */
     font-style: italic;
-    /*margin: 20px auto;*/
+    margin: 20px auto;
 }
 
 @media only screen and (min-width: 740px) and (max-width: 980px) {
@@ -178,18 +189,19 @@ img {
 
     border-top: 3px solid #D6D3C8;
     border-bottom: 3px solid #D6D3C8;
-    /*padding: 60px 0;*/
+    padding-top: 60px; /* utilizando padding-top e padding-bottom, pois o bootstrap usa um padding para os lados */
+    padding-bottom: 60px;
 }
 
 
 .cafe-tipos {
-    
+    margin-bottom: 40px;
 }
 
 .cafe-tipos h2 {
     font-size: 2.25em;
     text-align: center;
-    /*margin-bottom: 20px;*/
+    margin-bottom: 20px;
 }
 
 .cafe-tipos h2::before {
@@ -201,8 +213,8 @@ img {
     border-radius: 50%; /* se a borda-radius for 50% do tamanho total da largura e altura é criado uma figura redonda */
 
     border: 5px solid #E7E4D8;
-    box-shadow: 0 0 0 5px currentColor; /* definindo que terá uma sombra com o tamanho de 10px e informando que irá pegar a color que está definida por padrão */
-    /*margin: 0 auto 20px auto;*/
+    box-shadow: 0 0 0 5px currentColor; /* definindo que terá uma sombra com o tamanho de 5px e informando que irá pegar a color que está definida por padrão */
+    margin: 0 auto 20px auto;
 }
 
 h2.cafe-paulista { /* adicionado junto com o before apenas os círculos irão pegar a cor, agora sem o before o texto também irá pegar essa cor */
@@ -236,9 +248,14 @@ h2.cafe-mineiro {
     color: #252525;
     display: block;
     width: 180px;
-    /*padding: 15px 0;
-    margin: 40px auto 0 auto;*/
+    padding: 15px 0;
+    margin: 0 auto;
    
+}
+
+.cafe-botao:hover {
+    text-decoration: none;
+    color: #252525;
 }
 
 @media only screen and (min-width: 740px) and (max-width: 980px) {
@@ -246,13 +263,7 @@ h2.cafe-mineiro {
 }
 
 @media only screen and (max-width: 739px) {
-    /*.cafe-tipos {
-        margin: 0;
-    }
-
-    .cafe-tipos p {
-        margin: 20px 0;
-    }*/
+    
 }
 
 /* Fim Produtos */
@@ -260,22 +271,17 @@ h2.cafe-mineiro {
 /* Locais */
 
 .lojas {
-    /*margin: 60px 0;*/
-}
-
-
-
-.lojas-img, .lojas-info {
-    
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .lojas-locais {
-    /*margin-bottom: 40px;*/
+    margin-bottom: 40px;
 }
 
 .lojas-locais h2 {
     font-size: 2.25em;
-    /*margin-bottom: 20px;*/
+    margin-bottom: 20px;
 }
 
 .lojas-locais p {
@@ -283,7 +289,7 @@ h2.cafe-mineiro {
     line-height: 1.4em;
     
     max-width: 320px; /* para o texto não ficar muito grande e dificultar a leitura */
-    /*margin-bottom: 40px;*/
+    margin-bottom: 40px;
 }
 
 .lojas-locais a {
@@ -293,33 +299,15 @@ h2.cafe-mineiro {
     color: #252525; /* definindo a cor, porquê a tag a não pega a cor padrão */
     border: 3px solid;
     
-    /*padding: 15px;*/
+    padding: 15px;
      
     
 }
 
-@media only screen and (min-width: 740px) and (max-width: 980px) {
-    
-   
-}
-
-@media only screen and (max-width: 739px) {
-    /*.lojas-img, .lojas-info {
-        margin: 0;
-    }
-
+@media only screen and (max-width: 768px) {
     .lojas-img {
-        margin-top: 40px;
+        margin-bottom: 20px;
     }
-
-    .lojas-locais h2 {
-        font-size: 2.25em;
-        margin: 20px 0;
-    }
-
-    .lojas-locais p {
-        margin-bottom: 60px;
-    }*/
 }
 
 /* Fim Locais */
