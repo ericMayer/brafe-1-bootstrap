@@ -317,7 +317,8 @@ h2.cafe-mineiro {
 
 .newsletter {
     background-color: #E7E4D8;
-    /*padding: 20px 0;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .newsletter-info {
@@ -335,7 +336,10 @@ h2.cafe-mineiro {
 }
 
 .newsletter form {
-    
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-top: 10px; 
 }
 
 .newsletter form input { /* não pega as configurações de cores padrões, por ser input e também não pega a font, por isso é necessário definir isso */
@@ -349,7 +353,8 @@ h2.cafe-mineiro {
     
     outline: none; /* tirando um azul que fica quando está selecionado o input */
 
-    
+    align-self: flex-start;
+    padding: 10px;
 }
 
 .newsletter form button {
@@ -365,15 +370,12 @@ h2.cafe-mineiro {
     cursor: pointer; /* quando passar o cursor por cima dele irá ficar com o cursor clicável */
     outline: none; /* tirando um azul que fica quando clicado o botão */
 
-    
-    
+    align-self: flex-start;
+
+    padding: 13px;   
 }
 
-@media only screen and (min-width: 740px) and (max-width: 980px) {
-
-}
-
-@media only screen and (max-width: 739px) {
+@media only screen and (max-width: 768px) {
 
    
 }
@@ -384,7 +386,8 @@ h2.cafe-mineiro {
 
 .rodape {
     background-color: #D6D3C8;
-    padding: 20px 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .rodape p {
@@ -393,13 +396,16 @@ h2.cafe-mineiro {
     
 }
 
-.rodape-img {
-    
+.rodape-img img {
+   float: right;
+   
 }
 
-@media only screen and (max-width: 739px) {
-
-    
+@media only screen and (max-width: 768px) {
+    .rodape-img img {
+        float: none;
+        margin-top: 20px;
+     }
 }
 
 
